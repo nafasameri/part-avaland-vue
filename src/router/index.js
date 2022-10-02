@@ -1,48 +1,55 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {
+  createRouter,
+  createWebHistory
+} from "vue-router";
 
-const routes = [
-  {
+const routes = [{
     path: "/",
     name: "home",
     component: () =>
-      import(/* webpackChunkName: "home" */ "../views/MainPage.vue"),
+      import( /* webpackChunkName: "home" */ "../views/MainPage.vue"),
   },
   {
     path: "/about",
     name: "search",
 
     component: () =>
-      import(/* webpackChunkName: "search" */ "../App.vue"),
+      import( /* webpackChunkName: "search" */ "../App.vue"),
   },
   {
     path: "/playmusic",
     name: "playmusic",
     component: () =>
-      import(/* webpackChunkName: "playmusic" */ "../views/MusicDetails.vue"),
+      import( /* webpackChunkName: "playmusic" */ "../views/MusicDetails.vue"),
   },
   {
     path: "/favorites",
     name: "favorites",
     component: () =>
-      import(/* webpackChunkName: "favorites" */ "../App.vue"),
+      import( /* webpackChunkName: "favorites" */ "../App.vue"),
   },
   {
     path: "/playlists",
     name: "playlists",
     component: () =>
-      import(/* webpackChunkName: "playlists" */ "../views/ListPlaylists.vue"),
+      import( /* webpackChunkName: "playlists" */ "../views/ListPlaylists.vue"),
+    children: {
+      path: ":id",
+      name: "playlistarchive",
+      component: () =>
+        import( /* webpackChunkName: "playlistarchive" */ "../views/PlayListArchive.vue"),
+    },
   },
   {
     path: "/upload",
     name: "upload",
     component: () =>
-      import(/* webpackChunkName: "upload" */ "../views/UploadMusic.vue"),
+      import( /* webpackChunkName: "upload" */ "../views/UploadMusic.vue"),
   },
   {
-    path: "/playlists/:id",
-    name: "playlistarchive",
-    component: () =>
-      import(/* webpackChunkName: "playlistarchive" */ "../views/PlayListArchive.vue"),
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () => import(/* webpackChunkName: "404" */ '../views/NotFound.vue')
   },
 ];
 
