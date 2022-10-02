@@ -10,11 +10,10 @@ const routes = [{
       import( /* webpackChunkName: "home" */ "../views/MainPage.vue"),
   },
   {
-    path: "/about",
+    path: "/search",
     name: "search",
-
     component: () =>
-      import( /* webpackChunkName: "search" */ "../App.vue"),
+      import( /* webpackChunkName: "search" */ "../views/NotFound.vue"),
   },
   {
     path: "/playmusic",
@@ -26,7 +25,7 @@ const routes = [{
     path: "/favorites",
     name: "favorites",
     component: () =>
-      import( /* webpackChunkName: "favorites" */ "../App.vue"),
+      import( /* webpackChunkName: "favorites" */ "../views/NotFound.vue"),
   },
   {
     path: "/playlists",
@@ -49,7 +48,7 @@ const routes = [{
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
-    component: () => import(/* webpackChunkName: "404" */ '../views/NotFound.vue')
+    component: () => import( /* webpackChunkName: "404" */ '../views/NotFound.vue')
   },
 ];
 
