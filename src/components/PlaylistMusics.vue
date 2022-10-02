@@ -41,7 +41,7 @@
               class="music-list__options"
               src="../assets/img/icon/bold/more.svg"
             />
-            <MusicOptionModal :styles="count" />
+            <MusicOptionModal :styles="display" />
           </div>
         </td>
       </tr>
@@ -95,7 +95,7 @@ import MusicOptionModal from "../components/MusicOptionModal.vue";
 export default {
   data() {
     return {
-      count: "none",
+      display: "none",
       musiclist: [
         {
           number: "۰۱",
@@ -147,10 +147,10 @@ export default {
   },
   methods: {
     showModal() {
-      if (this.count == "none") {
-        this.count = "block";
+      if (this.display == "none") {
+        this.display = "block";
       } else {
-        this.count = "none";
+        this.display = "none";
       }
     },
   },
@@ -160,106 +160,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-$primary-color: #fc8f22;
-$secondry-color: #999999;
-$background-color: #010101;
-
-.music-list {
-  direction: rtl;
-  text-align: right;
-  background-color: $background-color;
-  color: whitesmoke;
-  border-collapse: collapse;
-  margin-top: 90px;
-
-  th {
-    color: $secondry-color;
-    border-bottom: 1px solid;
-    font-size: 20px;
-    padding-bottom: 20px;
-  }
-
-  &__row {
-    height: 100px;
-  }
-
-  &__num {
-    width: 5%;
-  }
-
-  &__title {
-    width: 30%;
-  }
-
-  &__album {
-    width: 30%;
-  }
-
-  &__release-time {
-    width: 30%;
-  }
-
-  &__music-profile {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-
-  &__pic {
-    border-radius: 16px;
-    height: 64px;
-  }
-
-  &__artist-name {
-    margin-right: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  &__name {
-    font-family: "Peyda";
-    font-size: 16px;
-  }
-
-  &__name--active {
-    color: $primary-color;
-  }
-
-  &__artist {
-    font-size: 12px;
-    color: $secondry-color;
-  }
-
-  &__album-name {
-    color: white;
-  }
-
-  &__time,
-  &__like {
-    padding: 5px;
-    font-size: 16px;
-  }
-
-  &__time--active {
-    color: $primary-color;
-  }
-
-  &__options {
-    rotate: 90deg;
-    width: 24px;
-    height: 24px;
-  }
-  &__btn-options {
-    position: relative;
-  }
-  &__pause {
-    position: absolute;
-    right: 16px;
-    background-color: $primary-color;
-    padding: 5px;
-    border-radius: 50%;
-  }
-}
-</style>
+<style lang="scss" src="@/assets/sass/listplaylist.scss"></style>

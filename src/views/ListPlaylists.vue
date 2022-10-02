@@ -68,27 +68,4 @@ export default {
 };
 </script>
 
-<style >
-.playlists {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 24px 32px;
-  gap:1em;
-  background-color: rgba(70, 70, 70, 0.4);
-  border-radius: 16px;
-}
-h1 {
-  color: white;
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 24px;
-}
-
-template {
-  display: inline;
-}
-
-.more-icon {
-  rotate: 90deg;
-}
-</style>
+<style lang="scss" src="@/assets/sass/listplaylist.scss"></style>
