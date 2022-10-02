@@ -20,8 +20,9 @@
           >
             آپلود آهنگ
           </button>
-          <input type="file" class="" id="btn-upload" />
-
+          <button @click="axiosRequest()">click</button>
+          <!-- <input type="file" class="" id="btn-upload" /> -->
+            <!-- <html v-html="rawHtml"></html> -->
           <!-- <progress
             class="upload__progressbar"
             value="100"
@@ -44,8 +45,25 @@
   </div>
 </template>
 
-<script>
-export default {};
+<script setup>
+import axios from 'axios'
+
+var config = {
+  method: 'get',
+  url: '127.0.0.1:8000/music/form',
+  headers: { }
+};
+ function axiosRequest(){
+
+  axios(config)
+  .then(function (response) {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+// 
 </script>
 
 <style lang="scss">
