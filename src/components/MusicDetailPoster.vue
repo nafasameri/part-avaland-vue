@@ -20,24 +20,20 @@
         <img src="../assets/img/icon/linear/clock.svg" />
         <span>۰۳:۴۴</span>
       </div>
-      <div class="poster__share-btn"  >
+      <div class="poster__share-btn">
         <div>
-
-        <img src="../assets/img/icon/linear/heart.svg" alt="" />
+          <img src="../assets/img/icon/linear/heart.svg" alt="" />
         </div>
         <div>
-
-        <img src="../assets/img/icon/outline/share.png" alt="" />
+          <img src="../assets/img/icon/outline/share.png" alt="" />
         </div>
         <div @click="clickMainModal">
-           <img
-          src="../assets/img/icon/bold/more.svg"
-          alt=""
-          class="more-icon"
-         
-        />
+          <img
+            src="../assets/img/icon/bold/more.svg"
+            alt=""
+            class="more-icon"
+          />
         </div>
-       
       </div>
     </div>
     <div class="poster__lyrics">
@@ -72,7 +68,6 @@ let openMainModal = ref(false);
 
 function clickMainModal() {
   openMainModal.value = !openMainModal.value;
-  
 }
 </script>
 
