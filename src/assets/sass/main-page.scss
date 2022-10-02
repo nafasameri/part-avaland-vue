@@ -1,0 +1,164 @@
+$primary-color: #fc8f22;
+$secondry-color: #999999;
+$background-color: #010101;
+
+.top {
+  display: flex;
+}
+
+.bottom {
+  display: flex;
+}
+
+.right {
+  // width: 100%;
+}
+
+.mainpage {
+  &__banner {}
+
+  &__latest-songs {}
+
+  &__premium-banner {}
+}
+
+.banner {
+  position: relative;
+  max-width: 60vw;
+
+  &__background-image {
+    max-width: inherit;
+
+    img {
+      max-width: inherit;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    img {
+      max-width: 10em;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    left: 204px;
+    bottom: 0;
+
+    img {
+      max-width: 20em;
+    }
+  }
+}
+
+.premium-banner {
+  background-color: rgba(70, 70, 70, 0.4);
+  width: 20vw;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  margin: 0 10px;
+
+  img {
+    width: inherit;
+  }
+}
+
+.switch {
+  width: 20vw;
+  height: 56px;
+  background: rgba(70, 70, 70, 0.4);
+  border-radius: 16px;
+  margin: 2em 0;
+
+  button {
+    background-color: inherit;
+    border: none;
+    color: white;
+    height: inherit;
+    width: 50%;
+  }
+}
+
+
+.favorite-list {
+  background-color: rgba(70, 70, 70, 0.4);
+  width: 20vw;
+  aspect-ratio: 1 / 2;
+  overflow: scroll;
+  padding: 1em;
+  border-radius: 12px;
+
+  &__item {
+    margin: 10px 0;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item-name {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0.5em;
+  }
+
+  &__item-likes {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgba(153, 153, 153, 1);
+    margin: 1em;
+  }
+
+  &__item-plays {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgba(153, 153, 153, 1);
+    margin: 1em;
+  }
+}
+
+
+.history-list {
+  background-color: rgba(70, 70, 70, 0.4);
+  width: 20vw;
+  aspect-ratio: 1 / 2;
+  overflow: scroll;
+  padding: 1em;
+  border-radius: 12px;
+
+  &__item {
+    margin: 10px 0;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item-name {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0.5em;
+  }
+
+  &__item-likes {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgba(153, 153, 153, 1);
+    margin: 1em;
+  }
+
+  &__item-plays {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgba(153, 153, 153, 1);
+    margin: 1em;
+  }
+}
