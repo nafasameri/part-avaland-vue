@@ -20,9 +20,7 @@
           >
             آپلود آهنگ
           </button>
-          <button @click="axiosRequest()">click</button>
-          <!-- <input type="file" class="" id="btn-upload" /> -->
-            <!-- <html v-html="rawHtml"></html> -->
+          <input type="file" class="" id="btn-upload" @click="axiosRequest()" />
           <!-- <progress
             class="upload__progressbar"
             value="100"
@@ -46,24 +44,35 @@
 </template>
 
 <script setup>
-import axios from 'axios'
+import axios from "axios";
 
-var config = {
-  method: 'get',
-  url: '127.0.0.1:8000/music/form',
-  headers: { }
-};
- function axiosRequest(){
+function axiosRequest() {
+  // var config = {
+  //   method: "POST",
+  //   url: "http://127.0.0.1:81/music/upload",
+  //   headers: { 'Set-Cookie': 'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNjY0MjgyMTAwOTY4LCJ1c2VybmFtZSI6InRlc3QiLCJwYXNzd29yZCI6IjExMTEiLCJpYXQiOjE2NjQyODIxMDB9.pB8PttLTW-RGw5yDOPKWbNE4_Hn6ConNijVprfdNvv4; Expires=Tue, 27 Sep 2022 12:35:10 GMT; Path=/; Domain=127.0.0.1'},
+  // };
+  // axios(config)
+  //   .then(function (response) {
+  //     console.log(JSON.stringify(response.data));
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
 
+  var config = {
+    method: "POST",
+    url: "http://127.0.0.1:81/music/upload",
+    headers: { 'Set-Cookie': 'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNjY0NzE4NjY3NTgzLCJ1c2VybmFtZSI6InRlc3QiLCJwYXNzd29yZCI6IjExMTEiLCJpYXQiOjE2NjQ3MTg2Njd9.7LgrQVE4n9zMnAxnVBZAe0KtSyMm4T_sMRI8pZrlZbw; Expires=Sun, 02 Oct 2022 13:51:17 GMT; Path=/; Domain=127.0.0.1'},
+  };
   axios(config)
-  .then(function (response) {
-    console.log(JSON.stringify(response.data));
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.response);
+    });
 }
-// 
 </script>
 
 <style lang="scss">
