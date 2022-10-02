@@ -55,7 +55,7 @@ $secondry-color: #999999;
 $background-color: #010101;
 .selected-musics {
   max-width: 80vw;
-  padding:1em  3em;
+  padding:1em 3em;
   &__header {
     display: flex;
     align-items: center;
