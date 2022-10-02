@@ -68,12 +68,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 .playlists {
   display: flex;
   flex-wrap: wrap;
   padding: 24px 32px;
-  gap: 64px;
+  gap:1em;
   background-color: rgba(70, 70, 70, 0.4);
   border-radius: 16px;
 }

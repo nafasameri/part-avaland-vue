@@ -29,14 +29,12 @@
       <div class="modal__desc">حذف آهنگ</div>
     </div>
 
-    <template v-slot:modals>
       <UploadMusicInfo class="poster__edit-modal" v-if="openEditModal" />
       <DeleteMusicModal class="poster__delete-modal" v-if="openTrashModal" />
       <AddToPlaylistModal
         class="poster__playlist-modal"
         v-if="openPlaylistModal"
       />
-    </template>
   </div>
 </template>
 
@@ -47,18 +45,18 @@ import UploadMusicInfo from "./UploadMusicInfo.vue";
 import DeleteMusicModal from "./DeleteMusicModal.vue";
 import AddToPlaylistModal from "./AddToPlaylistModal.vue";
 
-const openEditModal = ref(false);
-const openTrashModal = ref(false);
-const openPlaylistModal = ref(false);
+let openEditModal = ref(false);
+let openTrashModal = ref(false);
+let openPlaylistModal = ref(false);
 
 function clickEditModal() {
-  this.openEditModal = ref(!this.openEditModal.value);
+  openEditModal.value = !openEditModal.value;
 }
 function clickTrashModal() {
-  this.openTrashModal = ref(!this.openTrashModal.value);
+  openTrashModal.value = !openTrashModal.value;
 }
 function clickPlaylistModal() {
-  this.openPlaylistModal = ref(!this.openPlaylistModal.value);
+  openPlaylistModal.value = !openPlaylistModal.value;
 }
 </script>
 

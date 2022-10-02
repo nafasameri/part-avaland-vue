@@ -3,11 +3,7 @@
   <div class="container">
     <SearchboxHeader />
     <main class="content">
-      <template>
-        <slot name="content">
-          <router-view></router-view>
-        </slot>
-      </template>
+      <router-view></router-view>
     </main>
   </div>
   <PlayerContent />

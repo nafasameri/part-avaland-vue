@@ -20,15 +20,24 @@
         <img src="../assets/img/icon/linear/clock.svg" />
         <span>۰۳:۴۴</span>
       </div>
-      <div class="poster__share-btn">
+      <div class="poster__share-btn"  >
+        <div>
+
         <img src="../assets/img/icon/linear/heart.svg" alt="" />
+        </div>
+        <div>
+
         <img src="../assets/img/icon/outline/share.png" alt="" />
-        <img
+        </div>
+        <div @click="clickMainModal">
+           <img
           src="../assets/img/icon/bold/more.svg"
           alt=""
           class="more-icon"
-          @click="clickMainModal"
+         
         />
+        </div>
+       
       </div>
     </div>
     <div class="poster__lyrics">
@@ -52,7 +61,6 @@
       </span>
     </div>
     <MusicDetailModal class="poster__options" v-if="openMainModal" />
-    <slot name="modals"> </slot>
   </section>
 </template>
 
@@ -60,10 +68,11 @@
 import { ref } from "vue";
 import MusicDetailModal from "./MusicDetailModal.vue";
 
-const openMainModal = ref(false);
+let openMainModal = ref(false);
 
 function clickMainModal() {
-  this.openMainModal = ref(!this.openMainModal.value);
+  openMainModal.value = !openMainModal.value;
+  
 }
 </script>
 

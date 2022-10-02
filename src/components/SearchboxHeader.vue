@@ -75,7 +75,7 @@ header {
 
     &__searchbox {
       background-color: rgba(70, 70, 70, 0.3);
-      width: 100%;
+      width: 80%;
       display: flex;
       height: 64px;
       justify-content: flex-end;
