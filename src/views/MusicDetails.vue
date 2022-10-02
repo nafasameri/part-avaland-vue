@@ -14,13 +14,3 @@ export default {
   },
 };
 </script>
-
-<style>
-template {
-  display: inline;
-}
-
-.more-icon {
-  rotate: 90deg;
-}
-</style>
