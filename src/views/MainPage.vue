@@ -19,9 +19,9 @@
       </div>
 
       <div class="mainpage__history-favorites">
-        <FavoriteHistorySwitch @some-event="ChangeT"/>
-        <FavoriteList v-if="!active.state"/>
-        <HistoryList v-if="active.state"/>
+        <FavoriteHistorySwitch @some-event="ChangeT" />
+        <FavoriteList v-if="!active.state" />
+        <HistoryList v-if="active.state" />
       </div>
     </div>
   </div>
@@ -30,39 +30,20 @@
 <script setup>
 import MainPageBanner from "../components/MainPageBanner.vue";
 import PremiumBanner from "../components/PremiumBanner.vue";
-import LatestMusics from "../components/LatestMusics.vue"
-import SelectedPlaylist from "../components/SelectedPlaylist.vue"
-import FavoriteHistorySwitch from "../components/FavoriteHistorySwitch.vue"
-import FavoriteList from "../components/FavoriteList.vue"
-import HistoryList from "../components/HistoryList.vue"
+import LatestMusics from "../components/LatestMusics.vue";
+import SelectedPlaylist from "../components/SelectedPlaylist.vue";
+import FavoriteHistorySwitch from "../components/FavoriteHistorySwitch.vue";
+import FavoriteList from "../components/FavoriteList.vue";
+import HistoryList from "../components/HistoryList.vue";
 
 import { reactive } from "@vue/reactivity";
-const active =reactive({
-  state:true
-})
-function ChangeT()
-    {
-      active.state= !active.state;
-      console.log(active.state);
-    }
+const active = reactive({
+  state: true,
+});
+function ChangeT() {
+  active.state = !active.state;
+  console.log(active.state);
+}
 </script>
 
-<style lang="scss">
-.top {
-  display: flex;
-}
-.bottom {
-  display: flex;
-}
-.right{
-  // width: 100%;
-}
-.mainpage {
-  &__banner {
-  }
-  &__latest-songs {
-  }
-  &__premium-banner {
-  }
-}
-</style>
+<style lang="scss" src="@/assets/sass/main-page.scss"></style>

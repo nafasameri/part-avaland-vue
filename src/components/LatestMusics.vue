@@ -49,30 +49,4 @@ const musics = [
 ];
 </script>
 
-<style lang="scss">
-$primary-color: #fc8f22;
-$secondry-color: #999999;
-$background-color: #010101;
-.latest-musics {
-  max-width: 80vw;
-  padding:1em 3em;
-  &__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  &__title {
-    color: white;
-  }
-  &__more {
-    color: $primary-color;
-  }
-  &__list {
-    background-color: rgba(70, 70, 70, 0.4);
-    // aspect-ratio: 3/1;
-    border-radius: 12px;
-    display: flex;
-    flex-wrap: nowrap;
-  }
-}
-</style>
+<style lang="scss" src="@/assets/sass/latest-musics.scss"></style>

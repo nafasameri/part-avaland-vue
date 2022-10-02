@@ -1,0 +1,201 @@
+$primary-color: #fc8f22;
+$secondry-color: #999999;
+$background-color: #010101;
+
+@font-face {
+  font-family: "Peyda";
+  font-weight: normal;
+  src: url(@/assets/fonts/peyda-light.ttf);
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-weight: lighter;
+  src: url(@/assets/fonts/peyda-extralight.ttf);
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-weight: bold;
+  src: url(@/assets/fonts/Peyda-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-weight: bolder;
+  src: url(@/assets/fonts/Peyda-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-weight: 100;
+  src: url(@/assets/fonts/Peyda-Black.ttf);
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-weight: 400;
+  src: url(@/assets/fonts/Peyda-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-weight: 600;
+  src: url(@/assets/fonts/Peyda-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-weight: bold;
+  src: url(@/assets/fonts/Peyda-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-weight: 100;
+  src: url(@/assets/fonts/Peyda-Thin.ttf);
+}
+
+body {
+  direction: rtl;
+  background: $background-color;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  font-family: "Peyda";
+  font-style: normal;
+  width: 100%;
+  flex-direction: row;
+}
+
+input,
+textarea,
+p,
+div,
+label,
+ul,
+li,
+button {
+  font-family: "Peyda";
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  // margin-right: 20%;
+  margin-bottom: 5%;
+}
+
+.content {
+  direction: rtl;
+  margin: 0px 3%;
+  // height: 100vh;
+}
+
+.more-icon {
+  rotate: 90deg;
+}
+
+header {
+  direction: ltr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  width: 100%;
+
+  .head {
+    width: 100%;
+    height: 64px;
+    margin: 0px 3%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__right {
+      display: flex;
+      align-items: center;
+    }
+
+    &__searchbox {
+      background-color: rgba(70, 70, 70, 0.3);
+      width: 80%;
+      display: flex;
+      height: 64px;
+      justify-content: flex-end;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 16px;
+    }
+
+    &__search-button {
+      margin-right: 10px;
+      width: 24px;
+      height: 24px;
+    }
+
+    &__search-text {
+      color: white;
+      text-align: right;
+      width: 100%;
+      padding: 8px 16px;
+      font-size: 16px;
+      font-family: "Peyda";
+      border: none;
+      background-color: transparent;
+    }
+
+    &__search-fillter {
+      border-radius: 30px;
+      background-color: rgba(70, 70, 70, 0.3);
+      color: #ffffff;
+      padding: 5px 15px;
+    }
+
+    &__line {
+      width: 2px;
+      height: 24px;
+      background-color: $secondry-color;
+    }
+
+    &__fillter-button {
+      width: 24px;
+      height: 24px;
+    }
+
+    &__search-fillter-text {
+      color: #ffffff;
+      margin-left: 20px;
+    }
+
+    &__profile {
+      width: 300px;
+      display: flex;
+      justify-content: center;
+      color: $primary-color;
+      font-family: "Peyda";
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    &__arrow-down {
+      margin-right: 10px;
+      margin-top: 8px;
+      width: 16px;
+      height: 8px;
+    }
+
+    &__search-text:focus {
+      border: none;
+    }
+  }
+}

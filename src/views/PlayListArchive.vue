@@ -15,8 +15,5 @@ export default {
 };
 </script>
 
-<style lang="scss">
-template {
-  display: inline;
-}
+<style>
 </style>
