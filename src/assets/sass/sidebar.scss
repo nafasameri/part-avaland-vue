@@ -1,10 +1,4 @@
-$primary-color: #fc8f22;
-$secondry-color: #999999;
-$background-color: #010101;
-
-@mixin primary-color {
-  filter: brightness(0) saturate(100%) invert(57%) sepia(96%) saturate(956%) hue-rotate(344deg) brightness(101%) contrast(98%);
-}
+@import "@/assets/sass/_variables.scss";
 
 .sidebar {
   direction: ltr;

@@ -1,3 +1,5 @@
+@import "@/assets/sass/_variables.scss";
+
 @mixin line() {
     height: 0px;
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -71,8 +73,7 @@
         width: 285px;
         height: 44px;
 
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-            #fc8f22;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), $primary-color;
         border-radius: 10px;
         flex: none;
         order: 1;
@@ -89,8 +90,8 @@
         width: 142.5px;
         height: 44px;
         border-radius: 10px;
-        color: #ffffff;
-        background: #00000000;
+        color: $text-color;
+        background: $transparent-color;
         border: none;
         display: flex;
         align-items: center;
@@ -108,8 +109,8 @@
         width: 142.5px;
         height: 44px;
 
-        color: #ffffff;
-        background: #00000000;
+        color: $text-color;
+        background: $transparent-color;
         border-radius: 10px;
         border: none;
         order: 1;
@@ -117,7 +118,7 @@
     }
 
     &__btn--active {
-        background: #fc8f22 !important;
+        background: $primary-color !important;
     }
 
     .playlists {
@@ -140,7 +141,7 @@
             justify-content: end;
             align-items: center;
             text-align: left;
-            color: #ffffff;
+            color: $text-color;
 
             flex: none;
             order: 0;
@@ -153,7 +154,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            background: #464646;
+            background: $background-block-color;
             border-radius: 10px;
             order: 0;
             align-self: stretch;
@@ -169,8 +170,8 @@
             gap: 10px;
             width: 110px;
             height: 48px;
-            color: #ffffff;
-            background: #fc8f22;
+            color: $text-color;
+            background: $primary-color;
             border-radius: 10px 0px 0px 10px;
             border: none;
         }
@@ -194,7 +195,7 @@
             align-items: center;
             padding: 0px;
             gap: 8px;
-            background: #464646;
+            background: $background-block-color;
             border: none;
             order: 1;
             align-self: stretch;
@@ -210,7 +211,7 @@
             padding: 12px 10px;
             gap: 12px;
             border-radius: 10px;
-            background: #464646;
+            background: $background-block-color;
             order: 1;
             align-self: stretch;
             flex-grow: 0;
@@ -228,7 +229,7 @@
         }
 
         __music-add {
-            background: #464646;
+            background: $background-block-color;
             border-radius: 10px;
             margin-bottom: 10px;
         }
@@ -257,7 +258,7 @@
             display: flex;
             align-items: center;
             text-align: right;
-            color: #ffa928;
+            color: $primary-color-active;
             order: 0;
             flex-grow: 0;
             margin: -4px 0px;
@@ -270,7 +271,7 @@
             display: flex;
             align-items: center;
             text-align: right;
-            color: #a3a3a3;
+            color: $text-color-secondry;
             order: 1;
             flex-grow: 0;
         }
@@ -293,7 +294,7 @@
             display: flex;
             align-items: center;
             justify-content: end;
-            color: #ffffff;
+            color: $text-color;
             order: 0;
             align-self: stretch;
             flex-grow: 0;
@@ -307,7 +308,7 @@
             order: 1;
             align-self: stretch;
             flex-grow: 0;
-            background: #3f3f3f;
+            background: $background-tag-color;
             border-radius: 10px;
         }
 
@@ -341,7 +342,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            color: #fc8f22;
+            color: $primary-color;
         }
 
         &__row {
@@ -380,7 +381,7 @@
             display: flex;
             align-items: center;
             text-align: right;
-            color: #ffffff;
+            color: $text-color;
             order: 0;
             flex-grow: 0;
             margin: -4px 0px;
@@ -395,7 +396,7 @@
             align-items: center;
             text-align: right;
 
-            color: #a3a3a3;
+            color: $text-color-secondry;
             order: 1;
             flex-grow: 0;
         }
@@ -424,7 +425,7 @@
         text-align: start !important;
         display: flex;
         align-items: center;
-        color: #ffffff;
+        color: $text-color;
     }
 
     &__actions {
@@ -451,8 +452,8 @@
             width: 310px;
             height: 56px;
 
-            color: #ffffff;
-            background: #f54444;
+            color: $text-color;
+            background: $danger-color;
             border-radius: 8px;
 
             flex: none;
@@ -472,8 +473,8 @@
             width: 210px;
             height: 56px;
 
-            color: #ffffff;
-            background: #464646;
+            color: $text-color;
+            background: $background-block-color;
             border-radius: 8px;
             border: none;
         }
@@ -482,21 +483,21 @@
 
 
 .option-modal {
-    color: white;
+    color: $text-color;
     position: absolute;
     display: none;
     width: 250px;
     height: 82px;
     left: 10.5px;
     bottom: 18px;
-    background: rgba(70, 70, 70, 0.7);
+    background: $background-elm-color;
     backdrop-filter: blur(17px);
     border-radius: 10px;
 }
 
 .option-modal {
     &__trash {
-        border-bottom: #999999 1px solid;
+        border-bottom: $secondry-color 1px solid;
         height: 50%;
         font-weight: 500;
         font-size: 16px;

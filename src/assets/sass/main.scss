@@ -1,6 +1,4 @@
-$primary-color: #fc8f22;
-$secondry-color: #999999;
-$background-color: #010101;
+@import "@/assets/sass/_variables.scss";
 
 @font-face {
   font-family: "Peyda";
@@ -144,7 +142,7 @@ header {
     }
 
     &__search-text {
-      color: white;
+      color: $text-color;
       text-align: right;
       width: 100%;
       padding: 8px 16px;
@@ -157,7 +155,7 @@ header {
     &__search-fillter {
       border-radius: 30px;
       background-color: rgba(70, 70, 70, 0.3);
-      color: #ffffff;
+      color: $text-color;
       padding: 5px 15px;
     }
 
@@ -173,7 +171,7 @@ header {
     }
 
     &__search-fillter-text {
-      color: #ffffff;
+      color: $text-color;
       margin-left: 20px;
     }
 
@@ -185,6 +183,10 @@ header {
       font-family: "Peyda";
       font-weight: 600;
       font-size: 16px;
+    }
+
+    &__username {
+      color: $primary-color;
     }
 
     &__arrow-down {

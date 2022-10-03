@@ -1,6 +1,5 @@
-$primary-color: #fc8f22;
-$secondry-color: #999999;
-$background-color: #010101;
+@import "@/assets/sass/_variables.scss";
+
 
 .playlist {
     display: flex;
@@ -19,7 +18,7 @@ $background-color: #010101;
         align-items: center;
         text-align: right;
 
-        color: #ffffff;
+        color: $text-color;
     }
 
     &__content {
@@ -149,7 +148,7 @@ $background-color: #010101;
 
     &__title {
         font-size: 32px;
-        color: white;
+        color: $text-color;
         margin: 0px;
         font-size: 32px;
         line-height: 45px;
@@ -164,7 +163,7 @@ $background-color: #010101;
     }
 
     &__seperator {
-        color: white;
+        color: $text-color;
     }
 
     figure {
@@ -236,7 +235,7 @@ $background-color: #010101;
     width: 231px;
     height: 168px;
 
-    background: rgba(70, 70, 70, 0.7);
+    background: $background-elm-color;
     backdrop-filter: blur(12px);
     /* Note: backdrop-filter has minimal browser support */
 
@@ -277,7 +276,7 @@ $background-color: #010101;
         align-items: center;
         text-align: right;
 
-        color: #ffffff;
+        color: $text-color;
     }
 
     &__icon {

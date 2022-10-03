@@ -1,18 +1,16 @@
-$primary-color: #fc8f22;
-$secondry-color: #999999;
-$background-color: #010101;
+@import "@/assets/sass/_variables.scss";
 
 .playlists {
     display: flex;
     flex-wrap: wrap;
     padding: 24px 32px;
     gap: 1em;
-    background-color: rgba(70, 70, 70, 0.4);
+    background-color: $background-content-color;
     border-radius: 16px;
 }
 
 h1 {
-    color: white;
+    color: $text-color;
     font-weight: 700;
     font-size: 28px;
     line-height: 24px;
@@ -37,7 +35,7 @@ h1 {
     }
 
     &__h3 {
-        color: rgba(255, 255, 255, 1);
+        color: $text-color;
         text-decoration: none;
     }
 
@@ -55,14 +53,14 @@ h1 {
 }
 
 .option-modal {
-    color: white;
+    color: $text-color;
     position: absolute;
     // display: none;
     width: 150px;
     height: 82px;
     left: 10.5px;
     bottom: 18px;
-    background: rgba(70, 70, 70, 0.7);
+    background: $background-elm-color;
     backdrop-filter: blur(17px);
     border-radius: 10px;
 }
@@ -152,7 +150,7 @@ h1 {
 
     &__title {
         font-size: 32px;
-        color: white;
+        color: $text-color;
     }
 
     &__detail {
@@ -164,7 +162,7 @@ h1 {
     }
 
     &__seperator {
-        color: white;
+        color: $text-color;
     }
 
     &__buttons {
@@ -257,7 +255,7 @@ h1 {
     }
 
     &__album-name {
-        color: white;
+        color: $text-color;
     }
 
     &__time,

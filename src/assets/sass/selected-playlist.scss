@@ -1,6 +1,5 @@
-$primary-color: #fc8f22;
-$secondry-color: #999999;
-$background-color: #010101;
+@import "@/assets/sass/_variables.scss";
+
 
 .selected-musics {
   max-width: 80vw;
@@ -13,7 +12,7 @@ $background-color: #010101;
   }
 
   &__title {
-    color: white;
+    color: $text-color;
   }
 
   &__more {
@@ -21,7 +20,7 @@ $background-color: #010101;
   }
 
   &__list {
-    background-color: rgba(70, 70, 70, 0.4);
+    background-color: $background-content-color;
     // aspect-ratio: 3/1;
     border-radius: 12px;
     display: flex;

@@ -1,6 +1,4 @@
-$primary-color: #fc8f22;
-$secondry-color: #999999;
-$background-color: #010101;
+@import "@/assets/sass/_variables.scss";
 
 .top {
   display: flex;
@@ -56,7 +54,7 @@ $background-color: #010101;
 }
 
 .premium-banner {
-  background-color: rgba(70, 70, 70, 0.4);
+  background-color: $background-content-color;
   width: 20vw;
   aspect-ratio: 1 / 1;
   border-radius: 16px;
@@ -70,14 +68,14 @@ $background-color: #010101;
 .switch {
   width: 20vw;
   height: 56px;
-  background: rgba(70, 70, 70, 0.4);
+  background: $background-content-color;
   border-radius: 16px;
   margin: 2em 0;
 
   button {
     background-color: inherit;
     border: none;
-    color: white;
+    color: $text-color;
     height: inherit;
     width: 50%;
   }
@@ -85,7 +83,7 @@ $background-color: #010101;
 
 
 .favorite-list {
-  background-color: rgba(70, 70, 70, 0.4);
+  background-color: $background-content-color;
   width: 20vw;
   aspect-ratio: 1 / 2;
   overflow: scroll;
@@ -94,7 +92,7 @@ $background-color: #010101;
 
   &__item {
     margin: 10px 0;
-    color: white;
+    color: $text-color;
     display: flex;
     align-items: center;
   }
@@ -125,7 +123,7 @@ $background-color: #010101;
 
 
 .history-list {
-  background-color: rgba(70, 70, 70, 0.4);
+  background-color: $background-content-color;
   width: 20vw;
   aspect-ratio: 1 / 2;
   overflow: hidden scroll;
@@ -134,7 +132,7 @@ $background-color: #010101;
 
   &__item {
     margin: 10px 0;
-    color: white;
+    color: $text-color;
     display: flex;
     align-items: center;
   }

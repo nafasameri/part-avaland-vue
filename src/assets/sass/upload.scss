@@ -38,7 +38,7 @@
         display: flex;
         align-items: center;
         text-align: right;
-        color: #ffffff;
+        color: $text-color;
     }
 
     &__content {
@@ -50,7 +50,7 @@
         gap: 16px;
         width: 90%;
         height: 300px;
-        background: rgba(70, 70, 70, 0.4);
+        background: $background-content-color;
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
         border-radius: 12px;
         flex: none;
@@ -99,7 +99,7 @@
         align-items: center;
         text-align: right;
         letter-spacing: 0.02em;
-        color: #ffffff;
+        color: $text-color;
     }
 
     progress {
@@ -107,7 +107,7 @@
         display: block;
         border: 0 none;
         background: $background-color;
-        color: #ffffff;
+        color: $text-color;
         width: 50%;
         border-radius: 50px;
     }
@@ -124,11 +124,11 @@
     progress::-webkit-progress-value {
         border-radius: 50px;
         background: $primary-color;
-        color: #ffffff;
+        color: $text-color;
     }
 
     &__progressbar-value {
-        color: #ffffff;
+        color: $text-color;
         position: absolute;
         bottom: 83px;
     }
@@ -183,7 +183,7 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 22px;
-    color: #ffffff;
+    color: $text-color;
     text-align: center;
     border: none;
     height: 56px;
@@ -197,7 +197,7 @@
     font-size: 16px;
     line-height: 22px;
     height: 56px;
-    color: #ffffff;
+    color: $text-color;
     text-align: center;
     border: none;
     margin-right: 20px;
@@ -219,7 +219,7 @@
         display: flex;
         align-items: center;
         text-align: right;
-        color: #ffffff;
+        color: $text-color;
     }
 
     &__content {
@@ -232,7 +232,7 @@
         width: 90%;
         height: auto;
 
-        background: rgba(70, 70, 70, 0.4);
+        background: $background-content-color;
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
         border-radius: 12px;
         flex: none;
@@ -257,7 +257,7 @@
         // align-items: center;
         text-align: right;
 
-        color: #ffffff;
+        color: $text-color;
         flex: none;
         order: 0;
         align-self: stretch;
@@ -310,7 +310,7 @@
         height: 56px;
         padding: 10px;
         border: none;
-        color: #ffffff;
+        color: $text-color;
         background: rgba(70, 70, 70, 0.5);
         border-radius: 0px 0px 16px 16px;
     }

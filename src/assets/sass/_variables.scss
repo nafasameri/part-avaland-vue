@@ -1,3 +1,19 @@
 $primary-color: #fc8f22;
+$primary-color-active: #ffa928;
 $secondry-color: #999999;
 $background-color: #010101;
+$danger-color: #f54444;
+
+$background-content-color: rgba(70, 70, 70, 0.4);
+$background-elm-color: rgba(70, 70, 70, 0.7);
+$background-block-color: #464646;
+$background-tag-color: #3f3f3f;
+
+$transparent-color: #00000000;
+$text-color: #ffffff;
+$text-color-secondry: #a3a3a3;
+
+
+@mixin primary-color {
+    filter: brightness(0) saturate(100%) invert(57%) sepia(96%) saturate(956%) hue-rotate(344deg) brightness(101%) contrast(98%);
+}

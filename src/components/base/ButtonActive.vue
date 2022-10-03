@@ -27,7 +27,7 @@ export default {
   font-weight: 700;
   font-size: 16px;
   line-height: 22px;
-  color: #ffffff;
+  color: $text-color;
   text-align: center;
   border: none;
 //   height: 56px;

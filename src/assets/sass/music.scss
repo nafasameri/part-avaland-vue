@@ -1,6 +1,4 @@
-$primary-color: #fc8f22;
-$secondry-color: #999999;
-$background-color: #010101;
+@import "@/assets/sass/_variables.scss";
 
 .music-card {
     max-width: 8em;
@@ -17,7 +15,7 @@ $background-color: #010101;
     }
 
     &__title {
-        color: rgba(255, 255, 255, 1);
+        color: $text-color;
         text-decoration: none;
         font-weight: 700;
         font-size: 16px;
