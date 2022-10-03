@@ -1,31 +1,36 @@
 <template>
   <form @submit.prevent="login" v-if="!formSubmitted">
-    <input
-      type="text"
-      id="username"
-      name="username"
-      placeholder="username"
-      v-model="username"
-    /><br />
-    <input
-      type="text"
-      id="password"
-      name="password"
-      placeholder="password"
-      v-model="password"
-    /><br />
-    <input
-      type="submit"
-      value="Login"
-      @click="login({ username: username, password: password })"
-    />
+    <InputForm :type="typeUsername" :id="idUsername" :name="nameUsername"></InputForm>
+    <InputForm :type="typePassword" :id="idPassword" :name="namePassword"></InputForm>
+    <ButtonActive :type="type" :lable="lable" @click="login({ username: username, password: password })"></ButtonActive>
   </form>
   <div style="color: white;">{{ userInfo }}</div>
 </template>
 
 <script>
+import ButtonActive from "@/components/base/ButtonActive.vue";
+import InputForm from "@/components/base/InputForm.vue";
 import { mapState, mapActions } from "vuex";
+
 export default {
+  props: {
+    type: { String, default:"submit"},
+    lable: { String, default:"Login"},
+
+    typeUsername: { String, default:"text"},
+    idUsername: { String, default:"username"},
+    classUsername: { String, default:"username"},
+    nameUsername: { String, default:"username"},
+
+    typePassword: { String, default:"text"},
+    idPassword: { String, default:"password"},
+    classPassword: { String, default:"password"},
+    namePassword: { String, default:"password"},
+  },
+  components: {
+    ButtonActive,
+    InputForm
+},
   data() {
     return {
       formSubmitted: false,
@@ -37,27 +42,6 @@ export default {
   },
 };
 </script>
-
-<!-- <script setup>
-// import user from "@/service/user";
-import axios from 'axios';
-
-async function login(username, password) {
-  //   console.log(user.login(username, password));
-  const data = JSON.stringify({
-    username: username,
-    password: password,
-  });
-
-  await axios.post("http://127.0.0.1:81/user/login", data)
-    .then(function (response) {
-      console.log(response.data.message);
-    })
-    .catch(function (error) {
-      console.log(error.response);
-    });
-}
-</script> -->
 
 <style>
 </style>
