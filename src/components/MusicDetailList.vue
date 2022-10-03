@@ -10,7 +10,7 @@
       <div class="playlist__list">
         <div
           class="playlist__item"
-          v-for="(music, index) in similarMusic"
+          v-for="(music, index) in musics"
           :key="index"
         >
           <img
@@ -37,26 +37,19 @@
   </section>
 </template>
 
-<script setup>
-import { ref } from "vue";
 
-const similarMusic = ref([
-  {
-    name: "باطل",
-    poster: "posters/Rectangle-8.png",
-    artist: "شادمهر عقیلی",
+<script>
+import { mapState, mapActions } from "vuex";
+
+export default {
+  computed: {
+    ...mapState("music", ["musics"]),
   },
-  {
-    name: "باطل",
-    poster: "posters/Rectangle-8.png",
-    artist: "شادمهر عقیلی",
+  methods: {
+    ...mapActions("music", ["get"]),
   },
-  {
-    name: "باطل",
-    poster: "posters/Rectangle-8.png",
-    artist: "شادمهر عقیلی",
-  },
-]);
+};
 </script>
+
 
 <style lang="scss" src="@/assets/sass/music-details.scss"></style>

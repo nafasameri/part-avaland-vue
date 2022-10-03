@@ -1,5 +1,5 @@
 <template>
-  <input :type="type" :id="id" :name="name" :v-model="name" />
+  <input :type="type" :id="id" :name="name" :v-model="name" :placeholder="name" />
 </template>
 
 <script>

@@ -1,10 +1,22 @@
 <template>
-  <form @submit.prevent="login" v-if="!formSubmitted">
-    <InputForm :type="typeUsername" :id="idUsername" :name="nameUsername"></InputForm>
-    <InputForm :type="typePassword" :id="idPassword" :name="namePassword"></InputForm>
-    <ButtonActive :type="type" :lable="lable" @click="login({ username: username, password: password })"></ButtonActive>
+  <div class="playlist-modal__actions">
+    <button @click="clickModal">ورود </button>
+    <button @click="clickModal">ثبت نام</button>
+  </div>
+
+  <form @submit.prevent="login({ username, password })" v-if="!signuoOrLogin">
+    <InputForm :type="typeUsername" :id="nameUsername" :name="nameUsername" v-model="username"></InputForm>
+    <InputForm :type="typePassword" :id="namePassword" :name="namePassword" v-model="password"></InputForm>
+    <ButtonActive :type="type" :lable="lableLogin"></ButtonActive>
+    <div style="color: white;">userInfo: {{ userInfo }}</div>
   </form>
-  <div style="color: white;">{{ userInfo }}</div>
+
+  <form @submit.prevent="signup({ username, password })" v-if="signuoOrLogin">
+    <InputForm :type="typeUsername" :id="nameUsername" :name="nameUsername" v-bind="username"></InputForm>
+    <InputForm :type="typePassword" :id="namePassword" :name="namePassword" v-bind="password"></InputForm>
+    <ButtonActive :type="type" :lable="lableSignUp"></ButtonActive>
+    <div style="color: white;">userInfo: {{ userInfo }}</div>
+  </form>
 </template>
 
 <script>
@@ -15,16 +27,13 @@ import { mapState, mapActions } from "vuex";
 export default {
   props: {
     type: { String, default:"submit"},
-    lable: { String, default:"Login"},
+    lableLogin: { String, default:"ورود"},
+    lableSignUp: { String, default:"ثبت نام"},
 
     typeUsername: { String, default:"text"},
-    idUsername: { String, default:"username"},
-    classUsername: { String, default:"username"},
     nameUsername: { String, default:"username"},
 
     typePassword: { String, default:"text"},
-    idPassword: { String, default:"password"},
-    classPassword: { String, default:"password"},
     namePassword: { String, default:"password"},
   },
   components: {
@@ -33,15 +42,27 @@ export default {
 },
   data() {
     return {
-      formSubmitted: false,
+      signuoOrLogin: false,
     };
   },
-  methods: {
+  computed: {
     ...mapState("user", ["userInfo"]),
-    ...mapActions("user", ["login"]),
+  },
+  methods: {
+    ...mapActions("user", ["login", "signup"]),
+    clickModal() {
+      this.signuoOrLogin = !this.signuoOrLogin;
+    }
   },
 };
 </script>
 
-<style>
+<style scoped>
+  form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    width: 25%;
+  }
 </style>

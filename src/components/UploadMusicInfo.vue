@@ -2,7 +2,7 @@
   <div class="music-info">
     <div class="music-info__title">اطلاعات آهنگ</div>
     <div class="music-info__content">
-      <form action="" class="music-info__form">
+      <form @submit.prevent="create({name, artist, album, duration, lyric})" class="music-info__form">
         <div class="row">
           <div class="col">
             <div class="form-group">
@@ -12,7 +12,7 @@
                 id="name"
                 name="name"
                 class="music-info__input"
-                value="اشارات"
+                v-model="name"
               />
             </div>
             <div class="form-group">
@@ -22,7 +22,7 @@
                 id="artist"
                 name="artist"
                 class="music-info__input"
-                value="محمدرضا شجریان و همایون شجریان"
+                v-model="artist"
               />
             </div>
           </div>
@@ -34,7 +34,7 @@
                 id="album"
                 name="album"
                 class="music-info__input"
-                value="اشارات"
+                v-model="album"
               />
             </div>
 
@@ -47,7 +47,7 @@
                 id="duration"
                 name="duration"
                 class="music-info__input"
-                value="۰۹:۰۰"
+                v-model="duration"
               />
             </div>
           </div>
@@ -81,14 +81,15 @@
             id="lyric"
             name="lyric"
             class="music-info__input"
+            v-model="lyric"
           >
 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
           </textarea>
         </div>
 
         <div class="buttons-action">
-          <input type="button" class="btn-active" value="ذخیره تغییرات" />
-          <input type="button" class="btn-disable" value="لغو" />
+          <input type="submit" class="btn-active" value="ذخیره تغییرات" />
+          <input type="button" class="btn-disable" value="لغو" @click="get()" />
         </div>
       </form>
     </div>
@@ -96,7 +97,13 @@
 </template>
 
 <script>
-export default {};
+import { mapActions } from "vuex";
+
+export default {
+  methods: {
+    ...mapActions("music", ["create", "get"])
+  },
+};
 </script>
 
 <style lang="scss" src="@/assets/sass/upload.scss"></style>

@@ -9,24 +9,18 @@
     <div class="upload">
       <div class="upload__title">بارگزاری آهنگ</div>
       <div class="upload__content">
-        <div class="upload__box">
-          <div class="upload__status">
-            کلیک کنید یا آهنگ خود را در این قسمت رها کنید
-          </div>
+        <form @submit.prevent="onShowFileUpload" class="upload__box" enctype="multipart/form-data" method="POST" action="http://127.0.0.1:81/music/upload">
+          <div v-if="uploaded" class="upload__status">اتمام بارگزاری</div>
+          <progress v-if="uploaded" class="upload__progressbar" value="100" max="100"></progress>
+          <div v-if="uploaded" class="upload__progressbar-value">۱۰۰%</div>
 
-          <button
-            class="btn-active"
-            onclick="document.getElementById('btn-upload').click()"
-          >
+          <div v-if="!uploaded" class="upload__status">کلیک کنید یا آهنگ خود را در این قسمت رها کنید</div>
+          <button v-if="!uploaded" class="btn-active" onclick="document.getElementById('btn-upload').click()">
             آپلود آهنگ
           </button>
-          <input type="file" class="" id="btn-upload" @click="axiosRequest()" />
-          <!-- <progress
-            class="upload__progressbar"
-            value="100"
-            max="100"></progress>
-          <div class="upload__progressbar-value">۱۰۰%</div> -->
-        </div>
+          <input v-if="!uploaded" type="file" id="btn-upload" name="multipleFiles" multiple="multiple" 
+            @click="onShowFileUpload" @change="onFileUpload" ref="theFile" hidden />
+        </form>
         <div class="upload__desc">
           <img
             src="../assets/img/icon/bold/info-circle.png"
@@ -43,7 +37,41 @@
   </div>
 </template>
 
-<script setup>
+<script>
+import { mapState, mapActions } from "vuex";
+
+export default {
+  data() {
+    return {
+      uploaded: false,
+    };
+  },
+  computed: {
+    ...mapState("music", ["music"]),
+  },
+  methods: {
+    ...mapActions("music", ["upload"]),
+    onShowFileUpload() {
+      this.$refs.theFile.value = "";
+      const onHandleMouseEnter = () => {
+        if (this.$refs.theFile.value.length === 0) {
+          console.log("No files loaded");
+        }
+        document.body.removeEventListener("mouseenter", onHandleMouseEnter);
+      };
+      document.body.addEventListener("mouseenter", onHandleMouseEnter);
+    },
+    async onFileUpload() {
+      console.log("Files Uploaded");
+      let output = await this.upload();
+      if (output.statusCode) // == 200)
+        this.uploaded = !this.uploaded;
+    },
+  },
+};
+</script>
+
+<!-- <script setup>
 import axios from "axios";
 
 function axiosRequest() {
@@ -73,6 +101,6 @@ function axiosRequest() {
       console.log(error.response);
     });
 }
-</script>
+</script> -->
 
 <style lang="scss" src="@/assets/sass/upload.scss"></style>
