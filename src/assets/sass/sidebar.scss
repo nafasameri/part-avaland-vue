@@ -2,6 +2,10 @@ $primary-color: #fc8f22;
 $secondry-color: #999999;
 $background-color: #010101;
 
+@mixin primary-color {
+  filter: brightness(0) saturate(100%) invert(57%) sepia(96%) saturate(956%) hue-rotate(344deg) brightness(101%) contrast(98%);
+}
+
 .sidebar {
   direction: ltr;
   display: flex;
@@ -71,11 +75,9 @@ $background-color: #010101;
     &__item:focus,
     &__desc:focus,
     &__icon:focus {
-      filter: brightness(0) saturate(100%) invert(57%) sepia(96%) saturate(956%)
-        hue-rotate(344deg) brightness(101%) contrast(98%);
-
+      @include primary-color();
       // filter: invert(60%) sepia(53%) saturate(1407%) hue-rotate(344deg) brightness(101%) contrast(98%);
-      & path {
+      path {
         stroke: $primary-color !important;
         fill: $primary-color !important;
       }

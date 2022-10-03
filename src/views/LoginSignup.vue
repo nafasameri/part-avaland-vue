@@ -1,6 +1,5 @@
 <template>
-  <form>
-   <!-- action="http://127.0.0.1:81/user/login" method="POST"> -->
+  <form @submit.prevent="login" v-if="!formSubmitted">
     <input
       type="text"
       id="username"
@@ -9,17 +8,37 @@
       v-model="username"
     /><br />
     <input
-      type="password"
+      type="text"
       id="password"
       name="password"
       placeholder="password"
       v-model="password"
     /><br />
-    <input type="submit" value="Login" @click="login(username, password)" />
+    <input
+      type="submit"
+      value="Login"
+      @click="login({ username: username, password: password })"
+    />
   </form>
+  <div style="color: white;">{{ userInfo }}</div>
 </template>
 
-<script setup>
+<script>
+import { mapState, mapActions } from "vuex";
+export default {
+  data() {
+    return {
+      formSubmitted: false,
+    };
+  },
+  methods: {
+    ...mapState("user", ["userInfo"]),
+    ...mapActions("user", ["login"]),
+  },
+};
+</script>
+
+<!-- <script setup>
 // import user from "@/service/user";
 import axios from 'axios';
 
@@ -38,7 +57,7 @@ async function login(username, password) {
       console.log(error.response);
     });
 }
-</script>
+</script> -->
 
 <style>
 </style>
