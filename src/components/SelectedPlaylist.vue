@@ -7,7 +7,7 @@
 
     <div class="selected-musics__list">
       <MusicCard
-        v-for="item in musics"
+        v-for="item in playlists"
         :key="item.name"
         :music-name="item.name"
         :music-image="item.img"

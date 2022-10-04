@@ -6,7 +6,11 @@
           src="../assets/img/icon/linear/setting-4.png"
           class="head__arrow-down"
         />
-        <div class="head__username">۰۹۱۵۴۰۶۴۹۸۷</div>
+        <div class="head__username">
+          <router-link to="/login">
+          ۰۹۱۵۴۰۶۴۹۸۷
+          </router-link>
+          </div>
       </div>
 
       <div class="head__searchbox">

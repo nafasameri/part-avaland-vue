@@ -15,7 +15,9 @@
 .mainpage {
   &__banner {}
 
-  &__latest-songs {}
+  &__latest-songs {
+    width: 60vw;
+  }
 
   &__premium-banner {}
 }
