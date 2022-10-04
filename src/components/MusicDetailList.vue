@@ -14,7 +14,7 @@
           :key="index"
         >
           <img
-            :src="require(`../assets/img/${music.poster}`)"
+            :src="require(`../assets/img/posters/${music.poster}`)"
             alt=""
             class="playlist__img"
           />
@@ -42,12 +42,17 @@
 import { mapState, mapActions } from "vuex";
 
 export default {
+ 
   computed: {
     ...mapState("music", ["musics"]),
   },
   methods: {
     ...mapActions("music", ["get"]),
   },
+  mounted(){
+    this.get()
+    console.log(this.musics);
+  }
 };
 </script>
 

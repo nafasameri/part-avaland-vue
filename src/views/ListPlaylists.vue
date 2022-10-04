@@ -4,63 +4,33 @@
     <section class="playlists">
       <PlaylistCard
         v-for="item in playlists"
-        :key="item.name"
+        :key="item[playlist-id]"
         :playlist-name="item.name"
-        :playlist-image="item.image"
-        :playlist-author="item.author"
+        :playlist-image="item.img"
+        :playlist-author="item.creator"
       />
     </section>
   </main>
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
 import PlaylistCard from "../components/PlaylistCard.vue";
 export default {
   data() {
     return {
-      playlists: [
-        {
-          image: "Rectangle 14.svg",
-          name: "لیست پخش۳",
-          author: "ایجاد شده توسط مصطفی",
-        },
-        {
-          image: "Rectangle 14.svg",
-          name: "لیست پخش۳",
-          author: "ایجاد شده توسط مصطفی",
-        },
-        {
-          image: "Rectangle 14.svg",
-          name: "لیست پخش۳",
-          author: "ایجاد شده توسط مصطفی",
-        },
-        {
-          image: "Rectangle 14.svg",
-          name: "لیست پخش۳",
-          author: "ایجاد شده توسط مصطفی",
-        },
-        {
-          image: "Rectangle 14.svg",
-          name: "لیست پخش۳",
-          author: "ایجاد شده توسط مصطفی",
-        },
-        {
-          image: "Rectangle 14.svg",
-          name: "لیست پخش۳",
-          author: "ایجاد شده توسط مصطفی",
-        },
-        {
-          image: "Rectangle 14.svg",
-          name: "لیست پخش۳",
-          author: "ایجاد شده توسط مصطفی",
-        },
-        {
-          image: "Rectangle 14.svg",
-          name: "لیست پخش۳",
-          author: "ایجاد شده توسط مصطفی",
-        },
-      ],
+      
     };
+  },
+  computed: {
+    ...mapState("playlist", ["playlists"]),
+  },
+  methods: {
+    ...mapActions("playlist", ["get"]),
+  },
+  mounted(){
+    this.get()
+    console.log(this.playlists);
   },
   components: {
     PlaylistCard,
