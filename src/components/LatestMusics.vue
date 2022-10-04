@@ -10,43 +10,34 @@
         v-for="item in musics"
         :key="item.name"
         :music-name="item.name"
-        :music-image="item.image"
-        :music-author="item.author"
+        :music-image="item.img"
+        :music-author="item.creator"
       />
     </div>
   </div>
 </template>
 
-<script setup>
+<script >
 import MusicCard from "../components/MusicCard.vue";
+import { mapState, mapActions } from "vuex";
 
-const musics = [
-  {
-    image: "Rectangle 14.svg",
-    name: "لیست پخش۳",
-    author: "بطری",
+export default {
+ 
+  computed: {
+    ...mapState("music", ["musics"]),
   },
-  {
-    image: "Rectangle 14.svg",
-    name: "لیست پخش۳",
-    author: "باطل",
+  methods: {
+    ...mapActions("music", ["get"]),
   },
-  {
-    image: "Rectangle 14.svg",
-    name: "لیست پخش۳",
-    author: "دستبند",
+  mounted(){
+    this.get()
+    console.log(this.musics);
   },
-  {
-    image: "Rectangle 14.svg",
-    name: "لیست پخش۳",
-    author: "ایحام",
-  },
-  {
-    image: "Rectangle 14.svg",
-    name: "لیست پخش۳",
-    author: "بی معرفت",
-  },
-];
+
+  components:{
+    MusicCard
+  }
+};
 </script>
 
 <style lang="scss" src="@/assets/sass/latest-musics.scss"></style>

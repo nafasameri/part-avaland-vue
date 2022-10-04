@@ -7,7 +7,11 @@ const value = {
     namespaced: true,
     state: {
         playlists: [
-            
+            // {
+            //     name:"wsvdfv",
+            //     img:"rvvdvv",
+            //     creator:"vsd"
+            // }
           ],
         playlist: {},
     },
