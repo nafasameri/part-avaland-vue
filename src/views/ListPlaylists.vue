@@ -8,7 +8,7 @@
         :playlist-name="item.name"
         :playlist-image="item.img"
         :playlist-author="item.creator"
-        :playlist-id="item[playlist-id]"
+        :playlist-id="item['playlist-id']"
       />
     </section>
   </main>

@@ -11,7 +11,7 @@
 
 <script>
 import SearchboxHeader from "../components/SearchboxHeader.vue";
-import SidebarNavigation from "./SidebarNavigation.vue";
+import SidebarNavigation from "../components/SidebarNavigation.vue";
 import PlayerContent from "../components/PlayerContent.vue";
 
 export default {

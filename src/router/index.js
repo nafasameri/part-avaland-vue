@@ -39,7 +39,8 @@ const routes = [{
   {
     path: "/favorites",
     name: "favorites",
-    component: () => import( /* webpackChunkName: "favorites" */ "../views/NotFound.vue"),
+    component: () => import( /* webpackChunkName: "playlistarchive" */ "../views/PlayListArchive.vue"),
+    // component: () => import( /* webpackChunkName: "favorites" */ "../views/NotFound.vue"),
     meta: [{
       user: undefined
     }]
