@@ -12,7 +12,7 @@ const value = {
             //     img:"rvvdvv",
             //     creator:"vsd"
             // }
-          ],
+        ],
         playlist: {},
     },
     getters: {},
@@ -50,7 +50,7 @@ const value = {
             context.commit('UPLOAD', playlist);
             return playlist;
         },
-        
+
         async get(context, id) {
             let playlist = 'error';
             const {
@@ -65,9 +65,23 @@ const value = {
                 })
                 .then(function (response) {
                     playlist = response.data.message;
+                    playlist.forEach(async (element, index) => {
+                        await axios.get(`http://127.0.0.1:8000/user/users?id=${element.creator}`, {
+                                headers: {
+                                    "Content-Type": "application/json",
+                                }
+                            })
+                            .then(function (response) {
+                                playlist[index].creator = response.data.message.username;
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                    });
+
                 })
                 .catch(function (error) {
-                    playlist = error.response;
+                    playlist = error.response.data.message;
                 });
             console.log(playlist);
             context.commit('GET', playlist);

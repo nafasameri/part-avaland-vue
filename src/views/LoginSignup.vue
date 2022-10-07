@@ -1,21 +1,21 @@
 <template>
-  <div class="playlist-modal__actions">
+  <div>
     <button @click="clickModal">ورود </button>
     <button @click="clickModal">ثبت نام</button>
   </div>
 
   <form @submit.prevent="login({ username, password })" v-if="!signuoOrLogin">
-    <InputForm :type="typeUsername" :id="nameUsername" :name="nameUsername" v-model="username"></InputForm>
-    <InputForm :type="typePassword" :id="namePassword" :name="namePassword" v-model="password"></InputForm>
+    <InputForm :type="typeUsername" :id="nameUsername" :name="nameUsername"></InputForm>
+    <InputForm :type="typePassword" :id="namePassword" :name="namePassword"></InputForm>
     <ButtonActive :type="type" :lable="lableLogin"></ButtonActive>
-    <div style="color: white;">userInfo: {{ userInfo }}</div>
+    <div style="color: white;">results: {{ userInfo }}</div>
   </form>
 
   <form @submit.prevent="signup({ username, password })" v-if="signuoOrLogin">
-    <InputForm :type="typeUsername" :id="nameUsername" :name="nameUsername" v-bind="username"></InputForm>
-    <InputForm :type="typePassword" :id="namePassword" :name="namePassword" v-bind="password"></InputForm>
+    <InputForm :type="typeUsername" :id="nameUsername" :name="nameUsername"></InputForm>
+    <InputForm :type="typePassword" :id="namePassword" :name="namePassword"></InputForm>
     <ButtonActive :type="type" :lable="lableSignUp"></ButtonActive>
-    <div style="color: white;">userInfo: {{ userInfo }}</div>
+    <div style="color: white;">results: {{ userInfo }}</div>
   </form>
 </template>
 
@@ -26,6 +26,9 @@ import { mapState, mapActions } from "vuex";
 
 export default {
   props: {
+    username: String,
+    password: String, 
+
     type: { String, default:"submit"},
     lableLogin: { String, default:"ورود"},
     lableSignUp: { String, default:"ثبت نام"},

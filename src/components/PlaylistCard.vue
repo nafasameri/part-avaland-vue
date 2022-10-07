@@ -3,7 +3,7 @@
     <img :src="require(`@/assets/img/posters/${playlistImage}`)" alt="" />
     <div class="playlist__description">
       <div class="playlist__title">
-        <router-link :to="{ path: `/playlists/${playlsistId}` }" class="playlist__h3">
+        <router-link :to="{ path: `/playlists/${plalistId}` }" class="playlist__h3">
           <h3 class="playlist__h3">{{ playlistName }}</h3>
         </router-link>
         <span class="playlist__span">{{ playlistAuthor }}</span>
@@ -43,7 +43,7 @@ export default {
     playlistName: String,
     playlistImage: String,
     playlistAuthor: String,
-    PlalistId:Number
+    plalistId:Number
   },
   components: {
     PlaylistOptionModal,

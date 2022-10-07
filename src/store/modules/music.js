@@ -1,5 +1,7 @@
 import axios from "axios";
-import { useCookies } from "vue3-cookies";
+import {
+  useCookies
+} from "vue3-cookies";
 
 const value = {
   namespaced: true,
@@ -20,19 +22,21 @@ const value = {
     async upload(context) {
       let music = "error";
       console.log("music", music);
-      const { cookies } = useCookies();
+      const {
+        cookies
+      } = useCookies();
       cookies.set(
         "token",
         "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNjY0ODAzNDU3ODUzLCJ1c2VybmFtZSI6InRlc3QiLCJyb2xlIjoiMyIsImlhdCI6MTY2NDgwMzQ1N30.703Tq4icn9dbWN4stXMAEdsRZ6CvAA_nrpzeUQF6GGg; Expires=Mon, 03 Oct 2022 13:29:17 GMT; Path=/; Domain=127.0.0.1"
       );
 
       await axios({
-        method: "POST",
-        url: "http://127.0.0.1:8000/music/upload",
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
+          method: "POST",
+          url: "http://127.0.0.1:8000/music/upload",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
         .then(function (response) {
           music = response.data.message;
         })
@@ -52,7 +56,9 @@ const value = {
         duration: info.duration,
         lyric: info.lyric,
       };
-      const { cookies } = useCookies();
+      const {
+        cookies
+      } = useCookies();
       cookies.set(
         "token",
         "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNjY0ODAzNDU3ODUzLCJ1c2VybmFtZSI6InRlc3QiLCJyb2xlIjoiMyIsImlhdCI6MTY2NDgwMzQ1N30.703Tq4icn9dbWN4stXMAEdsRZ6CvAA_nrpzeUQF6GGg; Expires=Mon, 03 Oct 2022 13:29:17 GMT; Path=/; Domain=127.0.0.1"
@@ -72,7 +78,9 @@ const value = {
     },
     async get(context, id) {
       let musics = "error";
-      const { cookies } = useCookies();
+      const {
+        cookies
+      } = useCookies();
       cookies.set(
         "token",
         "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNjY0ODAzNDU3ODUzLCJ1c2VybmFtZSI6InRlc3QiLCJyb2xlIjoiMyIsImlhdCI6MTY2NDgwMzQ1N30.703Tq4icn9dbWN4stXMAEdsRZ6CvAA_nrpzeUQF6GGg; Expires=Mon, 03 Oct 2022 13:29:17 GMT; Path=/; Domain=127.0.0.1"
@@ -80,10 +88,9 @@ const value = {
 
       await axios
         .get(
-          id
-            ? `http://127.0.0.1:8000/music/musics?id=${id}`
-            : "http://127.0.0.1:8000/music/musics",
-          {
+          id ?
+          `http://127.0.0.1:8000/music/musics?id=${id}` :
+          "http://127.0.0.1:8000/music/musics", {
             headers: {
               "Content-Type": "application/json",
             },

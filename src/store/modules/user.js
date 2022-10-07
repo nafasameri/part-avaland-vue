@@ -14,35 +14,41 @@ const value = {
     },
     actions: {
         async login(context, info) {
+            info.username = document.getElementById('username').value;
+            info.password = document.getElementById('password').value;
+
             let users = 'error';
             const data = JSON.stringify({
-                username: info.username ?? 'test',
-                password: info.password ?? '1111'
+                username: info.username,
+                password: info.password
             });
-            console.log('data', data);
-            await axios.post('http://127.0.0.1:81/user/login', data)
+            await axios.post('http://127.0.0.1:8000/user/login', data)
                 .then(function (response) {
                     users = response.data.message;
                     const { cookies } = useCookies();
-                    cookies.set('token', response.headers["set-cookie"]);
-        
+                    cookies.set('token', response.headers["Set-Cookie"]);
+                    
                 })
                 .catch(function (error) {
-                    users = error.response.data;
+                    users = error.response.data.message;
                 });
             console.log('users', users);
             context.commit('LOGIN', users);
         },
         async signup(context, info) {
+            info.username = document.getElementById('username').value;
+            info.password = document.getElementById('password').value;
+            
             let users = 'error';
             const data = JSON.stringify({
-                username: info.username ?? '',
-                password: info.password ?? ''
+                username: info.username,
+                password: info.password
             });
             console.log('info', info);
-            await axios.post('http://127.0.0.1:81/user/signup', data)
+            await axios.post('http://127.0.0.1:8000/user/signup', data)
                 .then(function (response) {
                     users = response.data.message;
+                    users = 'Sign Up';
                 })
                 .catch(function (error) {
                     users = error.response.data.message;
