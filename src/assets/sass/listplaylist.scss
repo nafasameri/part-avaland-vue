@@ -1,0 +1,288 @@
+@import "@/assets/sass/_variables.scss";
+
+.playlists {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 24px 32px;
+    gap: 1em;
+    background-color: $background-content-color;
+    border-radius: 16px;
+}
+
+h1 {
+    color: $text-color;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 24px;
+}
+
+.more-icon {
+    rotate: 90deg;
+}
+
+.playlist {
+    max-width: 23%;
+    // width: 23%;
+
+    img {
+        max-width: 100%;
+    }
+
+    &__description {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+
+    &__h3 {
+        color: $text-color;
+        text-decoration: none;
+    }
+
+    &__span {
+        color: $secondry-color;
+    }
+
+    &__icon-more {
+        rotate: 90deg;
+    }
+
+    &__option {
+        position: relative;
+    }
+}
+
+.option-modal {
+    color: $text-color;
+    position: absolute;
+    // display: none;
+    width: 150px;
+    height: 82px;
+    left: 10.5px;
+    bottom: 18px;
+    background: $background-elm-color;
+    backdrop-filter: blur(17px);
+    border-radius: 10px;
+}
+
+.option-modal {
+    &__trash {
+        border-bottom: $secondry-color 1px solid;
+        height: 50%;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        text-align: right;
+
+        img {
+            margin: 4px;
+        }
+    }
+
+    &__edit {
+        height: 50%;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        text-align: right;
+
+        img {
+            margin: 4px;
+        }
+    }
+}
+
+
+/// playlist
+.poster {
+    background-image: url(@/assets/img/poster-background.jpg);
+    background-size: cover;
+    border-radius: 30px;
+    width: 100%;
+    height: 320px;
+    display: flex;
+    align-items: center;
+
+    &__imageplay {
+        position: relative;
+    }
+
+    &__image {
+        width: 200px;
+        border-radius: 30px;
+    }
+
+    &__btn-play {
+        width: 68px;
+        height: 68px;
+        margin-top: 15px;
+        position: absolute;
+        left: 150px;
+        top: 150px;
+    }
+
+    &__desc {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        direction: rtl;
+    }
+
+    &__tag {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 16px;
+        border-radius: 50px;
+        color: $primary-color;
+        padding: 6px 20px;
+        width: 115px;
+        height: 35px;
+        background: rgba(251, 138, 13, 0.2);
+    }
+
+    &__title {
+        font-size: 32px;
+        color: $text-color;
+    }
+
+    &__detail {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        color: $secondry-color;
+        gap: 10px;
+    }
+
+    &__seperator {
+        color: $text-color;
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+
+        img {
+            margin: 10px;
+        }
+    }
+
+    &__more {
+        position: relative;
+    }
+
+    &__btn-more {
+        width: 24px;
+        height: 24px;
+        margin-top: 15px;
+        rotate: 90deg;
+    }
+}
+
+.music-list {
+    direction: rtl;
+    text-align: right;
+    background-color: $background-color;
+    color: whitesmoke;
+    border-collapse: collapse;
+    margin-top: 90px;
+    width: 100%;
+
+    th {
+        color: $secondry-color;
+        border-bottom: 1px solid;
+        font-size: 20px;
+        padding-bottom: 20px;
+    }
+
+    &__row {
+        height: 100px;
+    }
+
+    &__num {
+        width: 5%;
+    }
+
+    &__title {
+        width: 30%;
+    }
+
+    &__album {
+        width: 30%;
+    }
+
+    &__release-time {
+        width: 30%;
+    }
+
+    &__music-profile {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    &__pic {
+        border-radius: 16px;
+        height: 64px;
+    }
+
+    &__artist-name {
+        margin-right: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__name {
+        font-family: "Peyda";
+        font-size: 16px;
+    }
+
+    &__name--active {
+        color: $primary-color;
+    }
+
+    &__artist {
+        font-size: 12px;
+        color: $secondry-color;
+    }
+
+    &__album-name {
+        color: $text-color;
+    }
+
+    &__time,
+    &__like {
+        padding: 5px;
+        font-size: 16px;
+    }
+
+    &__time--active {
+        color: $primary-color;
+    }
+
+    &__options {
+        rotate: 90deg;
+        width: 24px;
+        height: 24px;
+    }
+
+    &__btn-options {
+        position: relative;
+    }
+
+    &__pause {
+        position: absolute;
+        right: 16px;
+        background-color: $primary-color;
+        padding: 5px;
+        border-radius: 50%;
+    }
+}

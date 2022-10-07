@@ -1,60 +1,4 @@
-<template>
-  <aside class="sidebar">
-    <img src="../assets/logo.png" alt="" />
-
-    <div class="nav">
-      <router-link :to="menu.link"  v-for="(menu, index) in menus" :key="index" class="nav__item">
-          <p class="nav__desc">{{ menu.name }}</p>
-
-          <img
-            :src="require(`../assets/img/${menu.icon}`)"
-            alt=""
-            class="nav__icon"
-          />
-      </router-link>
-    </div>
-  </aside>
-</template>
-
-<script setup>
-const menus = [
-  {
-    name: "صفحه اصلی",
-    icon: "icon/linear/home-2.svg",
-    link: "/",
-  },
-  {
-    name: "جستجو",
-    icon: "icon/linear/discover.svg",
-    link: "/search",
-  },
-  {
-    name: "پخش آهنگ",
-    icon: "icon/linear/play.svg",
-    link: "/playmusic",
-  },
-  {
-    name: "محبوب ترین ها",
-    icon: "icon/linear/heart.svg",
-    link: "/favorites",
-  },
-  {
-    name: "لیست پخش منتخب",
-    icon: "icon/linear/receipt-square.svg",
-    link: "/playlists",
-  },
-  {
-    name: "آپلود آهنگ",
-    icon: "icon/linear/frame.svg",
-    link: "/upload",
-  },
-];
-</script>
-
-<style lang="scss">
-$primary-color: #fc8f22;
-$secondry-color: #999999;
-$background-color: #010101;
+@import "@/assets/sass/_variables.scss";
 
 .sidebar {
   direction: ltr;
@@ -79,7 +23,7 @@ $background-color: #010101;
     gap: 32px;
 
     &__item {
-      transition: all 0.3s;
+      transition: all 1s;
       text-decoration: none;
       display: flex;
       flex-direction: row;
@@ -125,15 +69,12 @@ $background-color: #010101;
     &__item:focus,
     &__desc:focus,
     &__icon:focus {
-      filter: brightness(0) saturate(100%) invert(57%) sepia(96%) saturate(956%)
-        hue-rotate(344deg) brightness(101%) contrast(98%);
-
+      @include primary-color();
       // filter: invert(60%) sepia(53%) saturate(1407%) hue-rotate(344deg) brightness(101%) contrast(98%);
-      & path {
+      path {
         stroke: $primary-color !important;
         fill: $primary-color !important;
       }
     }
   }
 }
-</style>

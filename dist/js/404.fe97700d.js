@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkAvaLand"]=self["webpackChunkAvaLand"]||[]).push([[596],{4063:function(n,r,u){u.r(r),u.d(r,{default:function(){return f}});var a=u(3396);function e(n,r,u,e,t,c){return(0,a.wg)(),(0,a.iD)("div",null,"صفحه مورد نظر پیدا نشد!")}var t={},c=u(89);const d=(0,c.Z)(t,[["render",e]]);var f=d}}]);
+//# sourceMappingURL=404.fe97700d.js.map

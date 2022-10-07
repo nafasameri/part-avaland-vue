@@ -9,25 +9,18 @@
     <div class="upload">
       <div class="upload__title">بارگزاری آهنگ</div>
       <div class="upload__content">
-        <div class="upload__box">
-          <div class="upload__status">
-            کلیک کنید یا آهنگ خود را در این قسمت رها کنید
-          </div>
+        <form @submit.prevent="onShowFileUpload" class="upload__box" enctype="multipart/form-data" method="POST" action="http://127.0.0.1:81/music/upload">
+          <div v-if="uploaded" class="upload__status">اتمام بارگزاری</div>
+          <progress v-if="uploaded" class="upload__progressbar" value="100" max="100"></progress>
+          <div v-if="uploaded" class="upload__progressbar-value">۱۰۰%</div>
 
-          <button
-            class="btn-active"
-            onclick="document.getElementById('btn-upload').click()"
-          >
+          <div v-if="!uploaded" class="upload__status">کلیک کنید یا آهنگ خود را در این قسمت رها کنید</div>
+          <button v-if="!uploaded" class="btn-active" onclick="document.getElementById('btn-upload').click()">
             آپلود آهنگ
           </button>
-          <input type="file" class="" id="btn-upload" />
-
-          <!-- <progress
-            class="upload__progressbar"
-            value="100"
-            max="100"></progress>
-          <div class="upload__progressbar-value">۱۰۰%</div> -->
-        </div>
+          <input v-if="!uploaded" type="file" id="btn-upload" name="multipleFiles" multiple="multiple" 
+            @click="onShowFileUpload" @change="onFileUpload" ref="theFile" hidden />
+        </form>
         <div class="upload__desc">
           <img
             src="../assets/img/icon/bold/info-circle.png"
@@ -45,167 +38,69 @@
 </template>
 
 <script>
-export default {};
+import { mapState, mapActions } from "vuex";
+
+export default {
+  data() {
+    return {
+      uploaded: false,
+    };
+  },
+  computed: {
+    ...mapState("music", ["music"]),
+  },
+  methods: {
+    ...mapActions("music", ["upload"]),
+    onShowFileUpload() {
+      this.$refs.theFile.value = "";
+      const onHandleMouseEnter = () => {
+        if (this.$refs.theFile.value.length === 0) {
+          console.log("No files loaded");
+        }
+        document.body.removeEventListener("mouseenter", onHandleMouseEnter);
+      };
+      document.body.addEventListener("mouseenter", onHandleMouseEnter);
+    },
+    async onFileUpload() {
+      console.log("Files Uploaded");
+      let output = await this.upload();
+      if (output.statusCode) // == 200)
+        this.uploaded = !this.uploaded;
+    },
+  },
+};
 </script>
 
-<style lang="scss">
-$primary-color: #fc8f22;
-$secondry-color: #999999;
-$background-color: #010101;
-.breadcrumbs {
-  // direction: rtl;
-  color: $secondry-color;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  padding: 0px;
-  gap: 8px;
-  list-style-type: none;
+<!-- <script setup>
+import axios from "axios";
 
-  &__item {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 16px;
-  }
+function axiosRequest() {
+  // var config = {
+  //   method: "POST",
+  //   url: "http://127.0.0.1:81/music/upload",
+  //   headers: { 'Set-Cookie': 'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNjY0MjgyMTAwOTY4LCJ1c2VybmFtZSI6InRlc3QiLCJwYXNzd29yZCI6IjExMTEiLCJpYXQiOjE2NjQyODIxMDB9.pB8PttLTW-RGw5yDOPKWbNE4_Hn6ConNijVprfdNvv4; Expires=Tue, 27 Sep 2022 12:35:10 GMT; Path=/; Domain=127.0.0.1'},
+  // };
+  // axios(config)
+  //   .then(function (response) {
+  //     console.log(JSON.stringify(response.data));
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
 
-  &__item:first-child {
-    color: $primary-color;
-    padding: 5px;
-  }
+  var config = {
+    method: "POST",
+    url: "http://127.0.0.1:81/music/upload",
+    headers: { 'Set-Cookie': 'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNjY0NzE4NjY3NTgzLCJ1c2VybmFtZSI6InRlc3QiLCJwYXNzd29yZCI6IjExMTEiLCJpYXQiOjE2NjQ3MTg2Njd9.7LgrQVE4n9zMnAxnVBZAe0KtSyMm4T_sMRI8pZrlZbw; Expires=Sun, 02 Oct 2022 13:51:17 GMT; Path=/; Domain=127.0.0.1'},
+  };
+  axios(config)
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.response);
+    });
 }
+</script> -->
 
-.upload {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 18px;
-  height: 386px;
-
-  &__title {
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    text-align: right;
-    color: #ffffff;
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 32px 24px;
-    gap: 16px;
-    width: 90%;
-    height: 300px;
-    background: rgba(70, 70, 70, 0.4);
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
-    border-radius: 12px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-  }
-
-  &__frame {
-    display: flex;
-    // flex-direction: column;
-    align-items: center;
-    padding: 0px;
-    gap: 16px;
-    width: 88%;
-    height: 282px;
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
-  }
-
-  &__box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 20px;
-    width: 100%;
-    height: 240px;
-    border: 2px dashed rgba(255, 255, 255, 0.25);
-    border-radius: 10px;
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
-
-    position: relative;
-  }
-
-  &__status {
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 26px;
-    display: flex;
-    align-items: center;
-    text-align: right;
-    letter-spacing: 0.02em;
-    color: #ffffff;
-  }
-
-  progress {
-    direction: ltr;
-    display: block;
-    border: 0 none;
-    background: $background-color;
-    color: #ffffff;
-    width: 50%;
-    border-radius: 50px;
-  }
-
-  progress::-moz-progress-bar {
-    border-radius: 50px;
-    background: $primary-color;
-  }
-
-  progress::-webkit-progress-bar {
-    background: transparent;
-  }
-
-  progress::-webkit-progress-value {
-    border-radius: 50px;
-    background: $primary-color;
-    color: #ffffff;
-  }
-
-  &__progressbar-value {
-    color: #ffffff;
-    position: absolute;
-    bottom: 83px;
-  }
-
-  &__desc {
-    width: 100%;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 26px;
-    display: flex;
-    align-items: center;
-    text-align: right;
-    color: $secondry-color;
-  }
-
-  .info {
-    padding: 5px;
-  }
-
-  #btn-upload {
-    display: none;
-  }
-
-  .btn-active {
-    padding: 10px 100px !important;
-  }
-}
-</style>
+<style lang="scss" src="@/assets/sass/upload.scss"></style>
